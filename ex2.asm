@@ -17,8 +17,8 @@ cmp $0, %edi
 jle end_HW1
 cells_loop_HW1:
 add %rcx, %rsi
-lea Address(%rax, %rsi), %r8
-movb Address(%rax, %rsi), %r9b
+lea $Address(%rax, %rsi), %r8
+movb $Address(%rax, %rsi), %r9b
 
 
 end_HW1:
