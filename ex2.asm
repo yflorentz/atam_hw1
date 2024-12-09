@@ -3,5 +3,8 @@
 .section .text
 _start:
 #your code here
-movq Address(%rip), %rsi
-mov Length, %rax
+movq (Address), %rsi
+movl (Length), %edi
+movb (Type), %rcx
+cells_loop_HW1:
+
