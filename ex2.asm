@@ -6,7 +6,6 @@ _start:
 movq (Address), %rsi
 
 movl (Length), %edi
-movzx %edi, %rdi
 
 movb (Type), %cl
 movzx %cl, %rcx
