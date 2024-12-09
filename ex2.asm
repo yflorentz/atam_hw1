@@ -4,7 +4,7 @@
 _start:
 #your code here
 movq $0, %rsi
-moveq $0, %rax
+movq $0, %rax
 
 movl (Length), %edi
 
@@ -18,6 +18,6 @@ jle end_HW1
 cells_loop_HW1:
 add %rcx, %rsi
 movb Address(%rax, %rsi), %dl
-movzx %dl, %rdl
+movzx %dl, %rdx
 
 end_HW1:
