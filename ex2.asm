@@ -4,4 +4,4 @@
 _start:
 #your code here
 movq Address(%rip), %rsi
-mov $0xff, %rax
+mov Length, %rax
