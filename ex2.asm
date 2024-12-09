@@ -18,15 +18,18 @@ array_loop_HW1:
 	cmp $0, %rdi
 	jle end_HW1
 
+	add %rcx, %rax
+	add %rcx, %rdx
 	movq %rcx, %r8
+	dec %r8
 	movq $0, %r9
 	cells_loop_HW1:
-		dec %r8
 		cmp $0, %r8
 		jl end_cell_HW1
 
 		movb (%rax, %r8), %r11b
 		movb %r11b, (%rdx, %r9)
+		dec %r8
 		inc %r9
 		jmp cells_loop_HW1
 
