@@ -3,5 +3,5 @@
 .section .text
 _start:
 #your code here
-moveq Address(%rip), %rsi
-move $0xff, rax
+movq Address(%rip), %rsi
+mov $0xff, %rax
