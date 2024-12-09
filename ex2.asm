@@ -26,9 +26,9 @@ array_loop_HW1:
 		jl end_cell_HW1
 
 		movb (%rax, %r8), %r11b
-		movb %r11b, (%rax, %r9)
+		movb %r11b, (%rdx, %r9)
 		inc %r9
-
+		jmp cells_loop_HW1
 
 	end_cell_HW1:
 	dec %rdi
