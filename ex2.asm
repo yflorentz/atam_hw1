@@ -4,7 +4,12 @@
 _start:
 #your code here
 movq (Address), %rsi
+
 movl (Length), %edi
-movb (Type), %rcx
+movzx %edi, %rdi
+
+movb (Type), %cl
+movzx %cl, %rcx
+
 cells_loop_HW1:
 
