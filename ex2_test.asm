@@ -1,7 +1,7 @@
 
 .section .text
 
-  mov $result, %rax
+  mov $Address, %rax
   cmpl $1, (%rax)
   jne bad_exit
 
