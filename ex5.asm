@@ -8,7 +8,7 @@ _start:
 movq $command, %rax
 no_space_loop_HW1:
 movb (%rax), %bl
-cmp $0, bl
+cmp $0, %bl
 jz success_HW1
 
 inc %rax
