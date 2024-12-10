@@ -4,7 +4,8 @@
 _start:
 #your code here
 
-cmp $0, $root
+mov $root, %rcx
+cmp $0, %rcx
 jz empty_HW1
 
 movq (root), %rax
@@ -47,7 +48,7 @@ empty_HW1:
 	movq $0, (%rax)
 	movq $0, 12(%rax)
 	movq %rax, (root)
-	jmp end_HW1:
+	jmp end_HW1
 
 
 end_HW1:
