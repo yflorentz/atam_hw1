@@ -5,5 +5,5 @@ _start:
 #your code here
 
 movq (root), %rax
-movq (node), %rbx
-movl 64(root), %r8l
+movq $node, %rbx
+movl 64(%rax), %r8l
