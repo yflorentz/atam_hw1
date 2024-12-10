@@ -27,23 +27,24 @@ space_next_char_HW1:
 		movb (%rax), %bl
 
 		cmp $0x20, %bl
-		jne equal_loop_HW1
+		jne check_part_HW1
 
 		cmp $0, %bl
 		jz open_b_HW1 #spaces and no '='
 
 	jmp space_next_char_loop_HW1
 	
-	
-equal_loop_HW1:
+check_part_HW1:
 	cmp $2, %rcx
 	
 	jge keep_going_HW1
 	movq %rax, %rdx #for later use, first char after first space
-
 	keep_going_HW1:
-	je equal_third_part_HW1
-	
+		je equal_third_part_HW1	
+
+	jmp equal_loop_HW1
+equal_loop_HW1:
+
 	#we are in the 2nd part of the word
 	movb (%rax), %bl
 
