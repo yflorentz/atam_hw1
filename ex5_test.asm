@@ -15,9 +15,8 @@ bad_exit:
   syscall
 
 .section .data
-command: .asciz "dfh"
-__Garbage_310385443: .byte 0xFF, 0xFF
+command: .asciz ""
+__Garbage_534752285: .byte 82, 96, 85, 2, 195
 __ExpectedResult: .byte 1
-__Garbage_16686264: .byte 147, 159, 29, 204, 213, 203, 210, 118, 212
+__Garbage_820062179: .byte 229, 9, 94, 51
 result: .byte 0
-__Garbage_643585055: .byte 36
