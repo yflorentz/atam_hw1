@@ -28,6 +28,6 @@ Node3:
 	.quad 0
 node:
 	.quad 23
-	.int 20
+	.int 150
 	.quad 5647
 
