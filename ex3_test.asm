@@ -13,7 +13,7 @@ bad_exit:
 
 .section .data
 root:
-	.quad root_val
+	.0
 root_val: 
 	.quad Node2
 	.int 100
