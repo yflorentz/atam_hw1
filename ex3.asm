@@ -4,8 +4,8 @@
 _start:
 #your code here
 
-mov $root, %rcx
-cmp $0, %rcx
+
+cmp $0, (root)
 jz empty_HW1
 
 movq (root), %rax
