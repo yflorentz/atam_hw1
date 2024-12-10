@@ -16,7 +16,7 @@ bad_exit:
 
 .section .data
 command: .asciz "int x=17"
-__Garbage_310385443: .byte FF, FF
+__Garbage_310385443: .byte 0xFF, 0xFF
 __ExpectedResult: .byte 1
 __Garbage_16686264: .byte 147, 159, 29, 204, 213, 203, 210, 118, 212
 result: .byte 0
