@@ -90,13 +90,13 @@ open_b_HW1:
 	jne end_HW1 #failed all tests
 
 	open_b_loop_HW1:
-		inc (%rdx)
-		movb (%rdx), bl
+		inc %rdx
+		movb (%rdx), %bl
 
 		cmp $0, %bl
 		jne open_b_loop_HW1
 
-	dec (%rdx)
+	dec %rdx
 	movb (%rdx), %bl
 	cmp $0x29, %bl
 	je success_HW1 #end with )
@@ -104,6 +104,6 @@ open_b_HW1:
 
 success_HW1:
 	movb $1, (result)
-	jmp end_HW1:
+	jmp end_HW1
 
 end_HW1:
