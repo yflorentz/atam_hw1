@@ -6,4 +6,4 @@ _start:
 
 movq (root), %rax
 movq $node, %rbx
-movl 64(%rax), %r8l
+movl 64(%rax), %r8d
