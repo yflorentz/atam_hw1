@@ -17,6 +17,11 @@ no_space_loop_HW1:
 	cmp $0x20, %bl
 	je space_next_char_HW1
 
+	cmp $0x28, %bl
+	jne not_braces_HW1
+	movq $1, %r8
+	not_braces_HW1:
+
 	inc %rax
 jmp no_space_loop_HW1
 
@@ -32,11 +37,6 @@ space_next_char_HW1:
 
 		cmp $0, %bl
 		jz open_b_HW1 #spaces and no '='
-
-		cmp $0x28, %bl
-		jne not_braces_HW1
-		movq $1, %r8
-		not_braces_HW1:
 
 	jmp space_next_char_loop_HW1
 	
