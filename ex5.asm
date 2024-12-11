@@ -7,6 +7,7 @@ _start:
 
 movq $command, %rax
 movq $0, %rcx #how many spaces
+movq $0, %r8 #open braces flag
 
 no_space_loop_HW1:
 	movb (%rax), %bl
@@ -31,6 +32,11 @@ space_next_char_HW1:
 
 		cmp $0, %bl
 		jz open_b_HW1 #spaces and no '='
+
+		cmp $0x28, %bl
+		jne not_braces_HW1
+		movq $1, %r8
+		not_braces_HW1:
 
 	jmp space_next_char_loop_HW1
 	
@@ -88,7 +94,10 @@ equal_sign_exist_HW1:
 open_b_HW1:
 	movb (%rdx), %bl
 	cmp $0x28, %bl
-	jne end_HW1 #failed all tests
+	je open_b_loop_HW1 
+	cmp $1, %r8
+	je open_b_loop_HW1
+	jmp end_HW1 #failed all tests
 
 	open_b_loop_HW1:
 		inc %rdx
