@@ -56,7 +56,6 @@ check_part_HW1:
 
 equal_loop_HW1:
 
-	#we are in the 2nd part of the word
 	movb (%rax), %bl
 
 	cmp $0x3d, %bl
@@ -97,9 +96,12 @@ equal_sign_exist_HW1:
 	jmp after_equal_after_space_loop_HW1
 
 open_b_HW1:
-	movb (%rdx), %bl
-	cmp $0x28, %bl
-	je open_b_loop_HW1 
+	cmp $0, %rdx
+	je first_space_is_last_char_HW1
+		movb (%rdx), %bl
+		cmp $0x28, %bl
+		je open_b_loop_HW1 
+	first_space_is_last_char_HW1:
 	cmp $1, %r8
 	je open_b_loop_HW1
 	jmp end_HW1 #failed all tests
