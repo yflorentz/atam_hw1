@@ -63,6 +63,8 @@ equal_loop_HW1:
 		cmp $0x20, %bl
 		je next_word_euqal_loop_HW1
 
+		inc %rax
+
 	jmp how_many_words_HW1
 
 	continue_equal_loop1_HW1:
