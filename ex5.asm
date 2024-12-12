@@ -89,6 +89,9 @@ equal_sign_exist_HW1:
 
 		cmp $0x20, %bl
 		jne after_equal_after_space_loop_HW1
+
+		inc %rax
+		movb (%rax), %bl
 		jmp after_all_equlas_HW1
 	
 	after_equal_after_space_loop_HW1:
