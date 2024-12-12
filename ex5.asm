@@ -17,6 +17,8 @@ movq $0, %r10 #last char 1st word
 movq $0, %r11 #3d word index
 movq $0, %r12 #last char 2st word
 
+movq $0, %r13 #for (
+
 
 
 no_space_loop_HW1:
@@ -46,6 +48,7 @@ equal_loop_HW1:
 	cmp $2, %rcx
 	jne not_2_word_HW1
 		movq %rax, %r9
+		movq %rax, %r13
 	not_2_word_HW1:
 
 	cmp $3, %rcx
@@ -150,26 +153,26 @@ next_word_euqal_loop_HW1:
 
 
 open_b_HW1:
-	cmp $0, %r9
+	cmp $0, %r13
 	je first_space_is_last_char_HW1
-		movb (%r9), %bl
+		movb (%r13), %bl
 		cmp $0x28, %bl
 		je open_b_loop_HW1 
 	first_space_is_last_char_HW1:
-		movq $command, %r9
+		movq $command, %r13
 	cmp $1, %r8
 	je open_b_loop_HW1
 	jmp end_HW1 #failed all tests
 
 	open_b_loop_HW1:
-		inc %r9
-		movb (%r9), %bl
+		inc %r13
+		movb (%r13), %bl
 
 		cmp $0, %bl
 		jne open_b_loop_HW1
 
-	dec %r9
-	movb (%r9), %bl
+	dec %r13
+	movb (%r13), %bl
 	cmp $0x29, %bl
 	je success_HW1 #end with )
 	jne end_HW1 #failed () test
