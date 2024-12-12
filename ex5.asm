@@ -4,10 +4,15 @@
 _start:
 #your code here
 #0x20= ' ', 0x3d = "=". 0x28 = '(', 0x29 = ')'
+#rbx is for the chars
+#rdx is for ( index
+#rdi is for = index
 
 movq $command, %rax
 movq $0, %rcx #how many spaces
 movq $0, %r8 #open braces flag
+movq $0, %rdi #index of second =
+movq $0, %r9 #how many spaces before second equal
 
 no_space_loop_HW1:
 	movb (%rax), %bl
@@ -59,7 +64,7 @@ equal_loop_HW1:
 	movb (%rax), %bl
 
 	cmp $0x3d, %bl
-	je equal_sign_exist_HW1
+	je first_equal_sign_exist_HW1
 
 	cmp $0x20, %bl
 	je space_next_char_HW1
@@ -73,10 +78,10 @@ jmp equal_loop_HW1
 
 equal_third_part_HW1:
 	cmp $0x3d, %bl
-	je equal_sign_exist_HW1
+	je first_equal_sign_exist_HW1
 	jmp open_b_HW1 #3rd part and it's not =
 
-equal_sign_exist_HW1:
+first_equal_sign_exist_HW1:
 
 	after_equal_loop_HW1:
 		inc %rax
@@ -97,12 +102,46 @@ equal_sign_exist_HW1:
 	after_equal_after_space_loop_HW1:
 		cmp $0, %bl
 		jz success_HW1 #no_spaces after '='
+		
 		cmp $0x20, %bl
-		je open_b_HW1 #more then 1 part after '='
+		je check_more_equal_HW1 #more then 1 part after '='
 
+		cmp $0x3d, %bl
+		jne not_extra_equal_HW1
+			movq %rax, %rdi #index of last '='
+			moveq %rcx, %r9 #number of spaces before
+
+		not_extra_equal_HW1:
 		inc %rax
 		movb (%rax), %bl
 	jmp after_equal_after_space_loop_HW1
+
+
+check_more_equal_HW1:
+	cmp %0, %rdi
+	je open_b_HW1
+	cmp $2, %r9
+	jge open_b_HW1
+
+	check_more_equal_loop_HW1:
+		inc %rdi
+		movb (%rdi), %bl
+
+		cmp $0x20, %bl
+		je check_more_equal_loop_HW1
+
+	more_spaces_loop_HW1:
+		
+		cmp $0, %bl
+		jz success_HW1 #no_spaces after '='
+
+		cmp $0x20, %bl
+		je open_b_HW1
+
+		inc %rdi
+		movb (%rdi), %bl
+	jmp more_spaces_loop_HW1
+
 
 open_b_HW1:
 	cmp $0, %rdx
