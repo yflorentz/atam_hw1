@@ -83,10 +83,10 @@ equal_loop_HW1:
 		
 		movb (%r9), %bl
 
-		cmp $0x3d, bl
+		cmp $0x3d, %bl
 		je success_HW1
 
-		cmp $0, bl
+		cmp $0, %bl
 		je two_words_continue_HW1
 
 		inc %r9
@@ -116,13 +116,13 @@ equal_loop_HW1:
 next_word_euqal_loop_HW1:
 	inc %rcx
 	
-	cmp $2, rcx
+	cmp $2, %rcx
 	jne not_e_1_HW1
 		movq %rax, %r10
 		dec %r10
 	not_e_1_HW1:
 
-	cmp $3, rcx
+	cmp $3, %rcx
 	jne not_e_1_HW1
 		movq %rax, %r12
 		dec %r12
