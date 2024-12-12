@@ -102,12 +102,12 @@ open_b_HW1:
 		cmp $0x28, %bl
 		je open_b_loop_HW1 
 	first_space_is_last_char_HW1:
+		movq $command, %rdx
 	cmp $1, %r8
 	je open_b_loop_HW1
 	jmp end_HW1 #failed all tests
 
 	open_b_loop_HW1:
-		movq $command, %rdx
 		inc %rdx
 		movb (%rdx), %bl
 
