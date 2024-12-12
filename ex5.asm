@@ -80,17 +80,17 @@ equal_loop_HW1:
 
 	#----- the word have 2 parts ----
 	equal_2_words_HW1:
-		2_word_equal_loop:
-			movb (%r9), %bl
+		
+		movb (%r9), %bl
 
-			cmp $0x3d, bl
-			je success_HW1
+		cmp $0x3d, bl
+		je success_HW1
 
-			cmp $0, bl
-			je 2_words_continue_HW1
+		cmp $0, bl
+		je 2_words_continue_HW1
 
-			inc %r9
-		jmp 2_word_equal_loop
+		inc %r9
+		jmp equal_2_words_HW1
 
 		2_words_continue_HW1:
 			cmp $0x3d, %r10
