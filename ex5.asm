@@ -122,6 +122,9 @@ check_more_equal_HW1:
 	je open_b_HW1
 	cmp $2, %r9
 	jg open_b_HW1
+	jne check_more_equal_loop_HW1
+	cmp $0x20, -1(%rdi)
+	jne open_b_HW1
 
 	check_more_equal_loop_HW1:
 		inc %rdi
