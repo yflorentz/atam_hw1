@@ -87,12 +87,12 @@ equal_loop_HW1:
 		je success_HW1
 
 		cmp $0, bl
-		je 2_words_continue_HW1
+		je two_words_continue_HW1
 
 		inc %r9
 		jmp equal_2_words_HW1
 
-		2_words_continue_HW1:
+		two_words_continue_HW1:
 			cmp $0x3d, %r10
 			je success_HW1
 		jmp open_b_HW1
