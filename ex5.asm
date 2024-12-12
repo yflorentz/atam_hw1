@@ -109,7 +109,7 @@ first_equal_sign_exist_HW1:
 		cmp $0x3d, %bl
 		jne not_extra_equal_HW1
 			movq %rax, %rdi #index of last '='
-			moveq %rcx, %r9 #number of spaces before
+			movq %rcx, %r9 #number of spaces before
 
 		not_extra_equal_HW1:
 		inc %rax
@@ -121,7 +121,7 @@ check_more_equal_HW1:
 	cmp %0, %rdi
 	je open_b_HW1
 	cmp $2, %r9
-	jge open_b_HW1
+	jg open_b_HW1
 
 	check_more_equal_loop_HW1:
 		inc %rdi
