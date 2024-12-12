@@ -3,7 +3,7 @@
 .section .text
 _start:
 #your code here
-#0x20= ' ', 0x3d = "=". 0x28 = '(', 0x29 = ')'
+#0x20= ' ', 0x3d = "=" 9 = '\t' 0x28 = '(', 0x29 = ')'
 
 #rbx is for the chars
 #rdx is for ( index
@@ -27,6 +27,8 @@ no_space_loop_HW1:
 	jz success_HW1 #no_spaces
 	
 	cmp $0x20, %bl
+	je space_exist_HW1
+	cmp $9, %bl
 	je space_exist_HW1
 
 	cmp $0x28, %bl
@@ -65,6 +67,8 @@ equal_loop_HW1:
 	
 		cmp $0x20, %bl
 		je next_word_euqal_loop_HW1
+		cmp $0x9, %bl
+		je next_word_euqal_loop_HW1
 
 		inc %rax
 
@@ -90,6 +94,7 @@ equal_loop_HW1:
 
 		cmp $0x3d, %bl
 		je success_HW1
+
 
 		cmp $0, %bl
 		je two_words_continue_HW1
@@ -122,6 +127,8 @@ equal_loop_HW1:
 		movb 1(%r11), %bl
 		cmp $0x20, %bl
 		je success_HW1
+		cmp $9, %bl
+		je success_HW1
 	jmp open_b_HW1
 
 
@@ -145,9 +152,11 @@ next_word_euqal_loop_HW1:
 		movb (%rax), %bl
 
 		cmp $0x20, %bl
-		jne equal_loop_HW1
+		je space_next_char_loop_HW1
+		cmp $0x9, %bl
+		je space_next_char_loop_HW1
 
-	jmp space_next_char_loop_HW1
+	jmp equal_loop_HW1
 
 
 
