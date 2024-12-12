@@ -95,7 +95,8 @@ equal_loop_HW1:
 		jmp equal_2_words_HW1
 
 		two_words_continue_HW1:
-			cmp $0x3d, (%r10)
+			movb (%r10), %bl
+			cmp $0x3d, bl
 			je success_HW1
 		jmp open_b_HW1
 
