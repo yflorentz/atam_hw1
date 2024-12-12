@@ -125,7 +125,7 @@ next_word_euqal_loop_HW1:
 	not_e_1_HW1:
 
 	cmp $3, %rcx
-	jne not_e_1_HW1
+	jne not_e_2_HW1
 		movq %rax, %r12
 		dec %r12
 	not_e_2_HW1:
