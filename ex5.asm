@@ -107,6 +107,7 @@ open_b_HW1:
 	jmp end_HW1 #failed all tests
 
 	open_b_loop_HW1:
+		movq $command, %rdx
 		inc %rdx
 		movb (%rdx), %bl
 
