@@ -115,6 +115,9 @@ equal_loop_HW1:
 	equal_4_words_HW1:
 		movb (%r11), %bl
 		cmp $0x3d, %bl
+		jne open_b_HW1
+		movb 1(%r11), %bl
+		cmp $0x20, %bl
 		je success_HW1
 	jmp open_b_HW1
 
