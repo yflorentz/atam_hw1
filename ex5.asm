@@ -15,7 +15,7 @@ no_space_loop_HW1:
 	jz success_HW1 #no_spaces
 	
 	cmp $0x20, %bl
-	je space_next_char_HW1
+	je space_exist_HW1
 
 	cmp $0x28, %bl
 	jne not_braces_HW1
@@ -26,6 +26,10 @@ no_space_loop_HW1:
 jmp no_space_loop_HW1
 
 
+space_exist_HW1:
+	mov movq $command, %rax
+	jmp equal_loop_HW1
+
 space_next_char_HW1:
 	inc %rcx
 	space_next_char_loop_HW1:	
@@ -33,9 +37,9 @@ space_next_char_HW1:
 		movb (%rax), %bl
 
 		cmp $0x20, %bl
-		jne check_part_HW1
+		jmp $0, %blne check_part_HW1
 
-		cmp $0, %bl
+		c
 		jz open_b_HW1 #spaces and no '='
 
 	jmp space_next_char_loop_HW1
@@ -49,6 +53,7 @@ check_part_HW1:
 		je equal_third_part_HW1	
 
 	jmp equal_loop_HW1
+
 equal_loop_HW1:
 
 	#we are in the 2nd part of the word
