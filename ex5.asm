@@ -95,22 +95,22 @@ equal_loop_HW1:
 		jmp equal_2_words_HW1
 
 		two_words_continue_HW1:
-			cmp $0x3d, %r10
+			cmp $0x3d, (%r10)
 			je success_HW1
 		jmp open_b_HW1
 
 	#----- the word have 3 parts ----
 	equal_3_words_HW1:
-		cmp $0x3d, %r11
+		cmp $0x3d, (%r11)
 		je success_HW1
 
-		cmp $0x3d, %r12
+		cmp $0x3d, (%r12)
 		je success_HW1
 	jmp open_b_HW1
 
 	#----- the word have 4 parts ----
 	equal_4_words_HW1:
-		cmp $0x3d, %r11
+		cmp $0x3d, (%r11)
 		je success_HW1
 	jmp open_b_HW1
 
