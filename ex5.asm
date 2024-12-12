@@ -27,7 +27,7 @@ jmp no_space_loop_HW1
 
 
 space_exist_HW1:
-	mov movq $command, %rax
+	movq $command, %rax
 	jmp equal_loop_HW1
 
 space_next_char_HW1:
@@ -37,9 +37,9 @@ space_next_char_HW1:
 		movb (%rax), %bl
 
 		cmp $0x20, %bl
-		jmp $0, %blne check_part_HW1
+		jne check_part_HW1
 
-		c
+		cmp $0, %bl
 		jz open_b_HW1 #spaces and no '='
 
 	jmp space_next_char_loop_HW1
