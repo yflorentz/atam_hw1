@@ -102,16 +102,19 @@ equal_loop_HW1:
 
 	#----- the word have 3 parts ----
 	equal_3_words_HW1:
-		cmp $0x3d, (%r11)
+		movb (%r11), %bl
+		cmp $0x3d, %bl
 		je success_HW1
 
-		cmp $0x3d, (%r12)
+		movb (%r12), %bl
+		cmp $0x3d, %bl
 		je success_HW1
 	jmp open_b_HW1
 
 	#----- the word have 4 parts ----
 	equal_4_words_HW1:
-		cmp $0x3d, (%r11)
+		movb (%r11), %bl
+		cmp $0x3d, %bl
 		je success_HW1
 	jmp open_b_HW1
 
