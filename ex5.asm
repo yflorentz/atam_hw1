@@ -118,7 +118,7 @@ first_equal_sign_exist_HW1:
 
 
 check_more_equal_HW1:
-	cmp %0, %rdi
+	cmp $0, %rdi
 	je open_b_HW1
 	cmp $2, %r9
 	jg open_b_HW1
